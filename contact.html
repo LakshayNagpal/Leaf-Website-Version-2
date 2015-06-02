@@ -1,0 +1,463 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+<!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<title>Leaf - Contact</title>
+<!-- Favicon
+    ============================================== -->
+<link rel="icon" href="images/leaf.png">
+<!-- Mobile Specific
+================================================== -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- CSS
+================================================== -->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="scripts/rs-plugin/css/settings.css">
+<link rel="stylesheet" type="text/css" href="css/colors/grayblue.css" id="colors">
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+<link rel="stylesheet" type="text/css" href="css/camera.css" id='camera-css'>
+<link rel="stylesheet" type="text/css" href="css/switcher.css" >
+<link rel="stylesheet" type="text/css" href="css/component.css" />
+<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+
+<!--[if lt IE 9]>
+	<script src="../../../html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!-- Java Script
+================================================== -->
+<style>
+.c1:hover
+{	    box-shadow: 0px 0px 12px #888888;
+}
+
+#hide {
+    display:none;
+}
+ 
+.rating input {
+    position:absolute;
+    filter:alpha(opacity=0);
+    -moz-opacity:0;
+    -khtml-opacity:0;
+    opacity:0;
+    cursor:pointer;
+    width:17px;
+}
+ 
+.rating span {
+    width:24px;
+    height:16px;
+    line-height:16px;
+    padding:1px 22px 1px 0; /* 1px FireFox fix */
+    background:url(images/stars.png) no-repeat  -22px 0;
+}
+ 
+/* Change span immediately following the checked radio */
+ 
+.rating input:checked + span {
+    background-position:-22px 0;
+}
+ 
+/* Reset all remaining stars back to default background.
+   This supersedes the above due to its ordering. */
+ 
+.rating input:checked + span ~ span {
+    background-position:0 0;
+}
+                  </style>
+              
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+//  Check Radio-box
+    $(".rating input:radio").attr("checked", true);
+    $('.rating input').click(function () {
+        $(".rating span").removeClass('checked');
+        $(this).parent().addClass('checked');
+    });
+
+    $('input:radio').change(
+    function(){
+        var userRating = this.value;
+        //alert(userRating);
+    }); 
+});
+</script>
+</head>
+<body>
+<div class="loader"><div class="ring"><div class="spin"></div></div></div>
+
+<div class="md-modal md-effect-1" id="modal-1">
+	<div class="md-content">
+		<h3 style="font-weight:500;">Schedule a Skype Call<i class="icon-remove-sign md-close button" style="float:right;"></i></h3>
+		<div>
+			
+			<form action="form_mailer.php?id=1" method="POST" id="skypecall">
+				<div class="six columns"><strong>Name:</strong> <input type="text" name="firstname" size="26" required>
+				<div style="float:right"><strong>Email: </strong> <input type="text" name="email" required></div></div>
+				<div class="six columns"><strong>Phone No: </strong> <input type="text" name="phone" size="22" required>
+				<div style="float:right"><strong>Skype ID: </strong> <input type="text" name="skypeid" required></div></div>
+				<div class="six columns"><strong>Desired Date: </strong><input type="date" name="calldate" required>
+				<div style="float:right"><strong>Desired Time: </strong><input type="time" name="calltime" required> IST</div></div>
+				<strong>Purpose: </strong> <textarea type="text" name="purpose" rows="1" cols="80"  required></textarea>
+				<div style="margin-bottom:10px;""><strong>Any Special Requests:</strong> <textarea type="text" name="request" rows="1" cols="80" ></textarea></div>
+			
+			<input type="submit" value="Schedule" style="margin-left:250px;">
+            <br>
+			</form>
+			
+			<!--<button class="md-close line-color button">Close</button>-->
+			
+		</div>
+	</div>
+</div>
+
+<div class="md-modal md-effect-1" id="modal-2" >
+	<div class="md-content">
+		<h3 style="font-weight:500;">Schedule a Meeting<i class="icon-remove-sign md-close button" style="float:right;"></i></h3>
+		<div>
+			
+			<form action="form_mailer.php?id=2" method="POST" id="meeting">
+				<div class="six columns"><strong>Name:</strong> <input type="text" name="firstname" required>
+				<div style="float:right"><strong>No of people accompanying:</strong> <input type="number" name="plus" min="0" max="5" required></div> </div>
+				<div class="six columns"><strong>Email:&nbsp;</strong> <input type="text" name="email"  required>
+				<div style="float:right"><strong>Phone No:</strong> <input type="text" name="phone" size="23" required></div></div>
+				<div class="six columns"><strong>Desired Date:</strong>   <input type="date" name="meetingdate" size=10 required>
+				<div style="float:right"><strong>Desired Time:</strong>   <input type="time" name="meetingtime" required> IST</div></div>
+				<div class="twelve columns"><strong>Address:</strong> <input type="text" size="69" name="address" required></div>
+
+				<div style="margin-top:20px"><strong>Purpose of visit:</strong><textarea type="text" name="purpose" rows="1" cols="79"  required></textarea></div>
+				<strong>Any Special Requests:</strong> <textarea type="text" name="request" rows="1" cols="79" ></textarea>
+			<br>
+			<input type="submit" value="Schedule" style="margin-left:250px;">
+            <br>
+			</form>
+			
+			<!-- <button class="md-close line-color button">Close</button> -->
+			
+		</div>
+	</div>
+</div>
+
+<div class="md-modal md-effect-1" id="modal-3">
+	<div class="md-content">
+		<h3 style="font-weight:500;">Mail Us <i class="icon-remove-sign md-close button" style="float:right;"></i></h3>
+		<div>
+		<center><i style="font-size:40px" class="ss-mail"></i>
+			<p>Write to us at </p>
+			<h4>support@leafwearables.com</h4><br>
+			
+			<!-- <button class="md-close line-color button">Close</button> -->
+		</center>	
+		</div>
+	</div>
+</div>
+
+<div class="md-modal md-effect-1" id="modal-4">
+	<div class="md-content">
+		<h3 style="font-weight:500;"> Call Us Rightaway<i class="icon-remove-sign md-close button" style="float:right;"></i></h3>
+		<div>
+		<center>
+			<h4><i class="icon-mobile-phone"></i>  Mobile</h4>
+			<p>+91 95600 17152</p>
+			<p>+91 99581 10044</p>
+			<h4><i class="ss-touchtonephone"></i>  Landline</h4>
+			<p>+91 11470 69044</p>
+		</center>	
+			
+			<!-- <button class="md-close line-color button">Close</button> -->
+		</center>	
+		</div>
+	</div>
+</div>
+
+<div class="md-modal md-effect-1" id="modal-5">
+	<div class="md-content">
+		<h3 style="font-weight:500;"> Instant Review<i class="icon-remove-sign md-close button" style="float:right;"></i></h3>
+		<div>
+			<form action="form_mailer.php?id=3" method="POST" id="instantreview">
+				<div class="six columns"><strong>Name:&nbsp;</strong> <input type="text" name="firstname"  size="23" required>
+				<div style="float:right"><strong>Email:</strong> <input type="text" name="email" required></div></div>
+				<div class="six columns"><strong>Phone No:</strong> <input type="text" name="phone" ></div>
+                <div class="six columns" style="margin-top:20px;"><strong> Review Us: </strong><span class="rating">
+    <input type="radio" name="rating" value="0"  /><span id="hide"></span>
+    <input type="radio" name="rating" value="1" /><span></span>
+    <input type="radio" name="rating" value="2" /><span></span>
+    <input type="radio" name="rating" value="3" /><span></span>
+    <input type="radio" name="rating" value="4" /><span></span>
+    <input type="radio" name="rating" value="5" /><span></span>
+</span></div>
+				<div style="margin-top:20px"><strong>Review:</strong> <textarea type="text" name="review" rows="1" cols="80"  required></textarea></div>
+			
+			<input type="submit" value="Submit" style="margin-left:250px;"><br>
+			</form>
+			
+			<!-- <button class="md-close line-color button">Close</button> -->
+	
+		</div>
+	</div>
+</div>
+
+ 
+
+<!-- Header
+================================================== -->
+<header id="header">
+     <!-- Mobile Menu & Search -->
+     <div class="container">
+         
+          <div class="two column">
+               <div id="mobile-navigation">
+                    <a href="#menu" class="menu-trigger"><i class="icon-reorder"></i></a></div>
+               
+          </div>
+          <div id="logo">
+                    <h1><a href="index.html"><img src="images/leaf1.png" alt="Leaf Innovation" /></a></h1>
+               </div>
+<!-- Navigation
+================================================== -->
+          <div class="thirteen columns">
+               <nav id="navigation" class="menu">
+                    <ul id="responsive">
+                         <li><a href="index.html">Home</a>
+                         </li>
+						 <li><a href="guardian.html">Safer</a>
+                         </li>
+						 <li><a href="team.html">Innovators</a>
+                         </li>
+                         <li><a href="advisors.html">Advisors</a>
+                         </li>
+						 <li><a href="contact.html" id="current">Contact</a></li>
+                 </ul>
+               </nav>
+          </div>
+     </div>
+     <!-- Container / End -->
+      <div class="topbar light">
+          <div class="container" style="margin-left: 1135px;">
+               
+               <div class="sixteen columns"  style="float:right">
+                     <ul class="social-icons right " >
+                         <li><a class="facebook" href="https://www.facebook.com/LeafCorporations" target="_blank"><i class="icon-facebook"></i></a></li>
+                         <li><a class="twitter" href="https://twitter.com/leafwearables" target="_blank"><i class="icon-twitter"></i></a></li>
+                         <li><a class="linkedin" href="https://www.linkedin.com/company/leaf-wearables" target="_blank"><i class="icon-linkedin"></i></a></li>
+                        <li><a class="gplus" href="https://plus.google.com/b/109033982835904908708/" target="_blank"><i class="icon-gplus"></i></a></li>
+             
+                         <li><a class="youtube" href="https://www.youtube.com/channel/UCGHuPvOE60PgLQI0bZUicGw" target="_blank"><i class="icon-youtube"></i></a></li>
+                 </ul>
+               </div>
+          </div>
+     </div>
+     
+</header>
+<!-- Header / End -->
+
+
+<!-- Content Wrapper
+================================================== -->
+<div id="content-wrapper">
+
+     <!-- Container -->
+     <div class="container">
+          <div class="sixteen columns main-headline">
+               <h1 style="text-align:center; margin-top:5%; font-weight:600; color:#4b4b4d;">Contact</h1>
+               
+          </div>
+          <hr class="sep20">
+          <!-- Container / End -->
+     </div>
+     <div class="container" >
+          <!-- Portfolio Wrapper-->
+        
+        
+          <div class="six columns" style="border:solid 0px solid">
+                <a href="#" >
+				<img src="images/contact/skype2.png" class="md-trigger  c1" data-modal="modal-1"  style="height:230px; border:solid 1px #eeeeee;" alt="skype call">                   
+				</a>
+		  </div>
+		  
+		  <div class="six columns" style="border:solid 0px solid">
+          <a href="#" >
+            <img src="images/contact/meeting.png"  class="md-trigger c1" data-modal="modal-2" style="height:230px; border:solid 1px #eeeeee;" alt="meeting">                   
+		  </a>
+
+			</div>
+		<div class="four columns " style="border:solid 0px solid">
+			<img src="images/contact/email.png" class="md-trigger c1" data-modal="modal-3" style="height:230px;width:280px; border:solid 1px #eeeeee;" alt="email">                   
+		  </div>
+	  </div>
+	<hr class="sep20">
+	  <div class="container">
+
+		<div class="four columns" style="border:solid 0px solid; margin-left:19%;">
+		  <img src="images/contact/callus.png"  class="md-trigger c1" data-modal="modal-4" style="height:230px; border:solid 1px #eeeeee;" alt="phone call">                   
+		</div>
+		<div class="six columns" style="height:300px;border:solid 0px solid; margin-left:14%;">
+		  <img src="images/contact/review.png" class="md-trigger c1" data-modal="modal-5" style="height:230px; border:solid 1px #eeeeee;" alt="Instant review">                   
+		
+		</div>
+		
+		
+	  </div>
+		  
+     <hr class="sep40">
+     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script><div style="overflow:hidden;height:400px;width:87.7%; margin-bottom:2%; margin-left:6.3%;"><div id="gmap_canvas" style="height:400px;width:100%;"></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type="text/javascript"> function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(28.65134333,77.19227225),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(28.65134333,77.19227225)});infowindow = new google.maps.InfoWindow({content:"1451/23,First Floor <br/>Naiwala,Karol Bagh<br/>New Delhi 110005" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+     
+     
+     <div class="container">
+          <div class="seven columns">
+               <h3 class="headline">Send us a message</h3>
+               <span class="brd-headling"></span>
+               <div class="clearfix"></div>
+               <!-- Contact Form -->
+               <section id="contact">
+                    <!-- Success Message -->
+                    <mark id="message"></mark>
+                    <!-- Form -->
+                    <form method="post" name="contactform" id="contactform" action="form_mailer.php?id=4">
+                         <fieldset>
+                         <div>
+                              <label for="name" accesskey="U">Name:</label>
+                              <input name="name" type="text" id="name" style="width:96%;" />
+                         </div>
+                         <div>
+                              <label for="email" accesskey="E">Email: <span>*</span></label>
+                              <input name="email" type="email" id="email" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$" style="width:96%;" />
+                         </div>
+                         <div>
+                              <label for="comments" accesskey="C">Message: <span>*</span></label>
+                              <textarea name="comments" cols="40" rows="3" id="comments" spellcheck="true" style="width:96%;"></textarea>
+                         </div>
+                         </fieldset>
+                         <input type="submit" class="submit" id="submit" value="Send Message" />
+                         <div class="clearfix"></div>
+                    </form>
+               </section>
+               <!-- Contact Form / End -->
+          </div>
+          <div class="nine columns right">
+               <h3 class="headline">Contact Information</h3>
+               <span class="brd-headling"></span>
+               <div class="clearfix"></div>
+               <!-- <p>Sed quia non numquam eius modi tempora.</p> -->
+               <div class="four columns" style="border-bottom:1px solid #eee; margin-right:0px; border-right:1px solid #eee;">
+                    <div class="featured-box" data-animated="flipInX">
+                         <div class="circle-2"><i class="ss-location"></i></div>
+                         <div class="featured-desc-2">
+                              <h3>Office Address</h3>
+                              <p style="font-size:12px;">1451/23, First Floor, Naiwala,Karol Bagh,New Delhi-110005</p>
+                         </div>
+                    </div>
+               </div>
+               <div class="four columns" style="border-bottom:1px solid #eee;">
+                    <div class="featured-box" data-animated="flipInX">
+                         <div class="circle-2"><i class="ss-phone"></i></div>
+                         <div class="featured-desc-2">
+                              <h3>Phone Number</h3>
+                              <p>+91 11470 69044<br>
+                                 +91 95600 17152</p>
+                         </div>
+                    </div>
+               </div>
+               <div class="four columns" style="border-right:1px solid #eee;">
+                    <div class="featured-box" data-animated="flipInX">
+                         <div class="circle-2"><i class="ss-mail"></i></div>
+                         <div class="featured-desc-2">
+                              <h3>Email ID's</h3>
+                              <p> support@leafwearables.com<br>
+                                 </p>
+                         </div>
+                    </div>
+               </div>
+               <div class="four columns">
+                    <div class="featured-box" data-animated="flipInX">
+                         <div class="circle-2"><i class="ss-users"></i></div>
+                         <div class="featured-desc-2">
+                              <h3>Online Support</h3>
+                              <p> Skype ID: leafwearables <br> </p>
+                         </div>
+                    </div>
+               </div>
+               <hr class="sep40">
+               <div class="eight columns">
+                     <h3 class="headline">Newsletter</h3>
+                     <span class="brd-headling"></span>
+                    <div class="clearfix"></div>
+                    <p>Make sure you don't miss latest news about us, stay tuned!</p>
+                    <br>
+                    <form action="form_mailer.php?id=6" method="post">
+                         <button class="newsletter-btn" type="submit">Subscribe</button>
+                         <input class="newsletter" type="text" onBlur="if(this.value=='')this.value='Email Address';" onFocus="if(this.value=='Email Address')this.value='';" value="Email Address"  name="email" />
+                    </form>
+               </div>
+               
+          </div>
+     </div>
+
+</div>
+<!-- Content Wrapper / End -->
+
+          		<div class="md-overlay"></div><!-- the overlay element -->
+
+
+<hr class="sep40">
+<!-- Footer Bottom / Start -->
+<div id="footer-bottom" style="font-family:'Quicksand' , sans-serif;">
+     <!-- Container -->
+     <div class="container">
+          <div class="four columns">&copy;<a href="index.html">Leaf Innovation Pvt. Ltd.</a> 2014</div>
+          <div class="eight columns"><a href="terms.html" target="_blank">Terms of Use</a>&nbsp;|&nbsp;<a href="privacy.html" target="_blank">Privacy Notice</a>&nbsp;|&nbsp;<a href="refund.html" target="_blank">Refund Policy</a>&nbsp;|&nbsp;<a href="delivery.html" target="_blank">Delivery Policy</a>&nbsp;|&nbsp;<a href="sitemap.html" target="_blank">Site Map</a>&nbsp;|&nbsp; <a href="career.html" target="_blank">Careers</a></div>
+
+          <div class="four columns">
+              <ul class="social-icons-footer">
+                    <li><a href="https://www.facebook.com/LeafCorporations" target="_blank"><i class="icon-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/leafwearables" target="_blank"><i class="icon-twitter"></i></a></li>
+                    <li><a href="https://www.linkedin.com/company/leaf-wearables" target="_blank"><i class="icon-linkedin"></i></a></li>
+                    <li><a href="https://plus.google.com/b/109033982835904908708/" target="_blank"><i class="icon-gplus"></i></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCGHuPvOE60PgLQI0bZUicGw" target="_blank"><i class="icon-youtube"></i></a></li>
+               </ul>
+          </div>
+     </div>
+     <!-- Container / End -->
+</div>
+<!-- Footer Bottom / Start -->
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/jquery.themepunch.plugins.min.js"></script>
+<script src="scripts/jquery.themepunch.revolution.min.js"></script>
+<script src="scripts/jquery.themepunch.showbizpro.min.js"></script>
+<script src="scripts/appear.js"></script>
+<script src="scripts/jquery.easing.min.js"></script>
+<script src="scripts/jquery.tooltips.min.js"></script>
+<script src="scripts/jquery.magnific-popup.min.js"></script>
+<script src="scripts/jquery.superfish.js"></script>
+<script src="scripts/jquery.twitter.js"></script>
+<script src="scripts/jquery.flexslider.js"></script>
+<script src="scripts/jquery.jpanelmenu.js"></script>
+<script src="scripts/jquery.zflickrfeed.min.js"></script>
+<script src="scripts/jquery.contact.js"></script>
+<script src="scripts/jquery.isotope.min.js"></script>
+<script src="scripts/jquery.easy-pie-chart.js"></script>
+<script src="scripts/parallex.js"></script>
+<script src="scripts/ss-gizmo.js"></script>
+<script src="scripts/custom.js"></script>
+<!-- classie.js by @desandro: https://github.com/desandro/classie -->
+<script src="scripts/classie.js"></script>
+<script src="scripts/modalEffects.js"></script>
+
+<!-- for the blur effect -->
+<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+<script>
+	// this is important for IEs
+	var polyfilter_scriptpath = '/scripts/';
+</script>
+<script src="scripts/cssParser.js"></script>
+<script src="scripts/css-filters-polyfill.js"></script>
+
+</body>
+</html>
